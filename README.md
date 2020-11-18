@@ -15,3 +15,6 @@ First you need to install your dependencies, run the follwing command:
 Then to start the project run the follwing command:
 
 ### `npm start`
+
+
+Also you can found this poject at: https://rodrijl.github.io/challengeReactRedux/
