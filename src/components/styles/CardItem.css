@@ -1,0 +1,12 @@
+.card-characters{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+   
+} 
+
+.card-characters-character{
+
+    margin-bottom: 10px;
+    
+}
