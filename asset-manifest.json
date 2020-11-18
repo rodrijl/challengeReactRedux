@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/challengeReactRedux/static/css/main.a2594232.chunk.css",
+    "main.js": "/challengeReactRedux/static/js/main.8f6af924.chunk.js",
+    "main.js.map": "/challengeReactRedux/static/js/main.8f6af924.chunk.js.map",
+    "runtime-main.js": "/challengeReactRedux/static/js/runtime-main.975ba610.js",
+    "runtime-main.js.map": "/challengeReactRedux/static/js/runtime-main.975ba610.js.map",
+    "static/css/2.d1439f93.chunk.css": "/challengeReactRedux/static/css/2.d1439f93.chunk.css",
+    "static/js/2.02381aa6.chunk.js": "/challengeReactRedux/static/js/2.02381aa6.chunk.js",
+    "static/js/2.02381aa6.chunk.js.map": "/challengeReactRedux/static/js/2.02381aa6.chunk.js.map",
+    "index.html": "/challengeReactRedux/index.html",
+    "static/css/2.d1439f93.chunk.css.map": "/challengeReactRedux/static/css/2.d1439f93.chunk.css.map",
+    "static/css/main.a2594232.chunk.css.map": "/challengeReactRedux/static/css/main.a2594232.chunk.css.map",
+    "static/js/2.02381aa6.chunk.js.LICENSE.txt": "/challengeReactRedux/static/js/2.02381aa6.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/challengeReactRedux/static/media/outline-icons.ddae9b1b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.975ba610.js",
+    "static/css/2.d1439f93.chunk.css",
+    "static/js/2.02381aa6.chunk.js",
+    "static/css/main.a2594232.chunk.css",
+    "static/js/main.8f6af924.chunk.js"
+  ]
+}
