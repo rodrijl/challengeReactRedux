@@ -1,23 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Input } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import "./styles/SearchForm.css"
 
-export class SearchForm extends Component {
+import {SearchContainer} from './styles/Containers'
 
-    handleChangeSearchText = (event) => {
-        const text = event.target.value;
-        this.props.onTextChange(text);
-    }
+const SearchForm = (props) => {
+    const handleChangeSearchText = (event) => props.onTextChange(event.target.value);
 
-    render() {
-        return (
-            <div className="search-text">
-                <Input icon='search' placeholder='Search...' onKeyUp={this.handleChangeSearchText} />
-            </div>
-        )
-    }
-}
+    return (
+        <SearchContainer>
+            <Input icon='search' placeholder='Search...' onKeyUp={handleChangeSearchText} />
+        </SearchContainer>
+    );
+};
 
 SearchForm.propTypes = {
     onTextChange: PropTypes.func,

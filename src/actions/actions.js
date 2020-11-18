@@ -5,14 +5,14 @@ const getCharacters = (dispatch) => {
         type: 'START_GET_CHARACTERS'
     });
     fetch(API)
-    .then(response =>response.json())
+    .then(response => response.json())
     .then(data => {
         dispatch({
             type: 'SUCCESS_GET_CHARACTERS',
             characters: data.results
         });
     })
-    .catch(err => {
+    .catch(() => {
         dispatch({
             type: 'ERROR_GET_CHARACTERS'
         });
@@ -22,9 +22,8 @@ const getCharacters = (dispatch) => {
 const deleteCharacter = (dispatch, url) =>{
     dispatch({
         type: 'DELETE_CHARACTER',
-        url: url
+        url
     })
- 
 }
 
 export  {

@@ -1,51 +1,43 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, Button, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import {deleteCharacter} from '../actions/actions';
 import { connect } from 'react-redux';
-import "./styles/CardItem.css";
 
-class CardItem extends Component {
-  removeCharacter = () => {
-    const {url} = this.props.character;
-    this.props.deleteCharacter(url);
-  }
-  render(){
-    const {name,height,gender} = this.props.character;
+import {deleteCharacter} from '../actions/Actions';
 
-        return (
-            <div className="card-characters">               
-              <Card className="">
-                <Card.Content>
-                  <Image
+const CardItem = (props) => {
+    const {name, height, gender, url} = props.character;
+
+    const removeCharacter = () => props.deleteCharacter(url);
+
+    return (
+        <Card>
+            <Card.Content>
+                <Image
+                    alt='Card image profile'
                     floated='right'
                     size='mini'
                     src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
-                  />
-                  <Card.Header>{name}</Card.Header>
-                  <Card.Meta>{height}</Card.Meta>
-                  <Card.Meta>{gender}</Card.Meta>
-                </Card.Content>
-                <Card.Content extra>
-                  {/* <div className='ui two buttons'> */}
-                    <Button basic color='red' floated='right' onClick={this.removeCharacter}>
-                      Remove
-                    </Button>
-                  {/* </div> */}
-                </Card.Content>
-              </Card>
-            
-             </div>
-        );
-    }
-}
+                />
+                <Card.Header>{name}</Card.Header>
+                <Card.Meta>{height}</Card.Meta>
+                <Card.Meta>{gender}</Card.Meta>
+            </Card.Content>
+            <Card.Content extra>
+                <Button basic color='red' floated='right' onClick={removeCharacter}>
+                    Remove
+                </Button>
+            </Card.Content>
+        </Card>
+    );
+};
 
 CardItem.propTypes = {
-  character: PropTypes.object,
+    character: PropTypes.object,
 };
 
 const mapDispatchToProps = dispatch => ({
-  deleteCharacter: (url) => deleteCharacter(dispatch, url)
+    deleteCharacter: (url) => deleteCharacter(dispatch, url)
 });
 
 export default connect(null, mapDispatchToProps)(CardItem);

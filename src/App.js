@@ -1,61 +1,49 @@
-import React, { Component } from 'react';
-import { Segment, Dimmer, Loader } from 'semantic-ui-react';
+import React, { useState, useEffect } from 'react';
+import { Dimmer, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import 'semantic-ui-css/semantic.min.css';
+
 import SearchForm from './components/SearchForm';
-import {getCharacters} from './actions/actions';
+import {getCharacters} from './actions/Actions';
 import CardList from './components/CardList';
 
-class App extends Component {
-  constructor(props){
-    super(props);
+import 'semantic-ui-css/semantic.min.css';
 
-    this.state = {
-      searchText: ''
-    }
-  }
- 
-  componentDidMount(){
-    this.props.getCharacters();
-  }
+const App = (props) => {
+    const [searchText, setSearchText] = useState('');
+    const handleChangeSearchText = (text) => setSearchText(text);
 
-  handleChangeSearchText = (text) => {
-    this.setState(() =>({
-      searchText: text
-    }));
-  }
- 
-  render() {
-    const charactersToShow = this.props.characters.filter(character => {
-      if (this.props.searchText === '') {
-          return character;
-      } else {
-          if (character.name.toLowerCase().includes(this.state.searchText)) {
-              return character;
-          }
-      }
+    const charactersToShow = props.characters.filter(character => {
+        if (searchText === '') {
+            return character;
+        } else {
+            if (character.name.toLowerCase().includes(searchText)) {
+                return character;
+            }
+        }
     });
 
-    return (
-      <Segment>
-          <Dimmer active={this.props.loading} inverted>
-            <Loader size='large'>Loading</Loader>
-          </Dimmer>
+    useEffect(() => {
+            props.getCharacters();
+    }, []);
 
-          <SearchForm onTextChange={this.handleChangeSearchText}/>
-          <CardList characters={charactersToShow}/>
-      </Segment>
+    return (
+        <section>
+            <Dimmer active={props.loading} inverted>
+                <Loader size='large'>Loading...</Loader>
+            </Dimmer>
+            <SearchForm onTextChange={handleChangeSearchText}/>
+            <CardList characters={charactersToShow} searchText={searchText}/>
+        </section>
     );
-  }
-}
+};
 
 const mapStateToProps = state => ({
-  characters: state.characters,
-  loading: state.loading
+    characters: state.characters,
+    loading: state.loading
 });
 
 const mapDispatchToProps = dispatch => ({
-  getCharacters: () => getCharacters(dispatch)
+    getCharacters: () => getCharacters(dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
