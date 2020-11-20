@@ -3,7 +3,7 @@ import { Card, Button, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import {deleteCharacter} from '../actions/Actions';
+import {deleteCharacter} from '../actions/actions';
 
 const CardItem = (props) => {
     const {name, height, gender, url} = props.character;

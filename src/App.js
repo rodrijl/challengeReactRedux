@@ -3,7 +3,7 @@ import { Dimmer, Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 import SearchForm from './components/SearchForm';
-import {getCharacters} from './actions/Actions';
+import {getCharacters} from './actions/actions';
 import CardList from './components/CardList';
 
 import 'semantic-ui-css/semantic.min.css';
